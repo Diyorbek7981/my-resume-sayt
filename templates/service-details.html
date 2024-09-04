@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="Asia/Tashkent">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Diyorbek Dev</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'img/icon.png' %}" rel="icon">
+    <!--    <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">-->
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: iPortfolio
+    * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+    * Updated: Jun 27 2024 with Bootstrap v5.3.3
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body class="service-details-page">
+<header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="profile-img">
+        <img src="{% static 'img/profil_1.jpg' %}" alt="" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Abdurahimov Diyorbek</h1>
+    </a>
+
+    <div class="social-links text-center">
+        <a href="https://www.youtube.com/channel/UCG1H3j8U6no-DXVTMt65yrA" target="_blank" class="youtube"><i
+                class="bi bi-youtube"></i></a>
+        <a href="https://www.instagram.com/abruisdev/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://t.me/abruis_code" target="_blank" class="telegram"><i class="bi bi-telegram"></i></a>
+        <a href="https://www.linkedin.com/in/rustamjon-isroilov-9a5876246/" target="_blank" class="linkedin"><i
+                class="bi bi-linkedin"></i></a>
+        <!--        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>-->
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+        <ul>
+            <li><a href="/#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
+            <li><a href="/#about"><i class="bi bi-person navicon"></i> About</a></li>
+            <li><a href="/#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+            <li><a href="/#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
+            <!--            <li><a href="/#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>-->
+            <li><a href="/#contact"><i class="bi bi-telephone navicon"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background">
+        <div class="container d-lg-flex justify-content-between align-items-center">
+            <h1 class="mb-2 mb-lg-0">Service Details</h1>
+            <nav class="breadcrumbs">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current">Service Details</li>
+                </ol>
+            </nav>
+        </div>
+    </div><!-- End Page Title -->
+
+    <!-- Service Details Section -->
+    <section id="service-details" class="service-details section">
+
+        <div class="container">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="services-list">
+                        {% for i in service %}
+                            <a href="/service/{{ i.pk }}/"
+                               {% if i.pk == detail.pk %}class="active"{% endif %}>{{ i.name }}</a>
+                            <!--                        <a href="#">Telegram Bot</a>-->
+                            <!--                        <a href="#">Python Mentor</a>-->
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+                    <!--                    <img src="{% static 'img/services.jpg' %}" alt="" class="img-fluid services-img">-->
+                    <h3>{{ detail.title }}</h3>
+                    <p>
+                        {{ detail.description }}
+                    </p>
+                    <ul>
+                        {% for i in detail.advantage.all %}
+                            <li><i class="bi bi-check-circle"></i> <span>{{ i.title }}</span></li>
+                        {% endfor %}
+
+                    </ul>
+                    <p>
+
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section><!-- /Service Details Section -->
+
+</main>
+
+<footer id="footer" class="footer position-relative light-background">
+
+    <div class="container">
+        <div class="copyright text-center ">
+            <p><strong class="px-1 sitename">Abdurahimov Diyorbek</strong></p>
+        </div>
+        <div class="credits">
+            <a href="{{ service.telegram_bot }}" target="_blank">Telegram Bot</a>
+        </div>
+    </div>
+
+</footer>
+
+<!-- Scroll Top -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Preloader -->
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script src="{% static 'vendor/typed.js/typed.umd.js' %}"></script>
+<script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+<script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script>
+<script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+<!-- Main JS File -->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

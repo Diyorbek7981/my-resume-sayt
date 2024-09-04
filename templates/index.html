@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="Asia/Tashkent">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Diyorbek Dev</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'img/icon-dev.png' %}" rel="icon">
+
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: iPortfolio
+    * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+    * Updated: Jun 27 2024 with Bootstrap v5.3.3
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body class="index-page">
+
+
+<header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="profile-img">
+        {% for i in about %}
+            <img src="{{ i.image.url }}" alt="" class="img-fluid rounded-circle">
+        {% endfor %}
+    </div>
+
+    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Abdurahimov Diyorbek</h1>
+    </a>
+
+    <div class="social-links text-center">
+        <a href="{{ links.linktee }}" target="_blank" class="youtube"><i
+                class="bi bi-youtube"></i></a>
+        <a href="{{ links.instagram }}" target="_blank" class="instagram"><i
+                class="bi bi-instagram"></i></a>
+        <a href="{{ links.telegram }}" target="_blank" class="telegram"><i class="bi bi-telegram"></i></a>
+        <a href="{{ links.linkedin }}" target="_blank"
+           class="linkedin"><i
+                class="bi bi-linkedin"></i></a>
+        <!--        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>-->
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+        <ul>
+            <li><a href="/#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
+            <li><a href="/#about"><i class="bi bi-person navicon"></i> About</a></li>
+            <li><a href="/#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+            <li><a href="/#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
+            <!--            <li><a href="/#frends"><i class="bi bi-people-fill navicon"></i> Friends</a></li>-->
+            <li><a href="/#contact"><i class="bi bi-telephone navicon"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+        <img src="{% static 'img/computer-programming.jpg' %}" alt="" data-aos="fade-in" class="">
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <h2>Diyorbek Dev</h2>
+            <p><span class="typed"
+                     data-typed-items="Developer, Freelancer, Telegram Bot, Python Mentor">Developer</span><span
+                    class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span
+                    class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+        </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>About</h2>
+        </div><!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            {% for i in about %}
+                <div class="row gy-4 justify-content-center">
+                    <div class="col-lg-4">
+                        <img src="{{ i.image.url }}" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-lg-8 content">
+                        <h2>Telegram Bot &amp; Web Developer.</h2>
+                        <p class="fst-italic py-3">
+                            {{ i.title }}
+                        </p>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <ul>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong>
+                                        <span>{{ i.bithday|date:"d F Y" }}</span></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong>
+                                        <span>{{ i.site }}</span></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong>
+                                        <span>{{ i.phone_number }}</span></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>City:</strong>
+                                        <span>{{ i.city }}</span></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <ul>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Bot:</strong>
+                                        <span>{{ i.bot }}</span>
+                                    </li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong>
+                                        <span>{{ i.degree }}</span>
+                                    </li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong>
+                                        <span>{{ i.email }}</span></li>
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong>
+                                        <span>{{ i.freelance }}</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </section>
+    <!-- /About Section -->
+
+    <section id="stats" class="stats section">
+
+        <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            {% for i in about %}
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item">
+                            <i class="bi bi-emoji-smile"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="{{ i.happy_cleints }}"
+                                  data-purecounter-duration="0"
+                                  class="purecounter">{{ i.happy_cleints }}</span>
+                            <p><strong>Happy Clients</strong></p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item">
+                            <i class="bi bi-window-sidebar"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="{{ i.site_project }}"
+                                  data-purecounter-duration="0"
+                                  class="purecounter">{{ i.site_project }}</span>
+                            <p><strong>Web Site</strong></p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item">
+                            <i class="bi bi-telegram"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="{{ i.bot_project }}"
+                                  data-purecounter-duration="0"
+                                  class="purecounter">{{ i.bot_project }}</span>
+                            <p><strong>Telegram Bot</strong></p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item">
+                            <i class="bi bi-people"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="{{ i.students }}"
+                                  data-purecounter-duration="0"
+                                  class="purecounter">{{ i.students }}</span>
+                            <p><strong>Students</strong></p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+    <!--     Resume Section -->
+    <section id="resume" class="resume section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Resume</h2>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="resume-title">Education</h3>
+                    {% for i in education %}
+                        <div class="resume-item">
+                            <h4>{{ i.title }}</h4>
+                            <h5>{{ i.year }}</h5>
+                            <p>{{ i.description }}</p>
+                        </div><!-- Edn Resume Item -->
+
+                    {% endfor %}
+
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="resume-title">Professional Experience</h3>
+                    {% for i in pro %}
+                        <div class="resume-item">
+                            <h4>{{ i.title }}</h4>
+                            <h5>{{ i.year }}</h5>
+                            <p>{{ i.description }}</p>
+                        </div><!-- Edn Resume Item -->
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section><!-- /Resume Section -->
+
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Services</h2>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+
+            <div class="row gy-4">
+                {% for i in service %}
+
+                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon flex-shrink-0"><i class="{{ i.icon }}"></i></div>
+                        <div>
+                            <h4 class="title"><a href="service/{{ i.pk }}/" class="stretched-link">{{ i.name }}</a></h4>
+                            <p class="description">{{ i.title }}</p>
+                        </div>
+                    </div>
+                    <!-- End Service Item -->
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </section><!-- /Services Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section light-background">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Friends</h2>
+        </div><!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="swiper init-swiper">
+                <script type="application/json" class="swiper-config">
+                    {
+                        "loop": true,
+                        "speed": 600,
+                        "autoplay": {
+                            "delay": 5000
+                        },
+                        "slidesPerView": "auto",
+                        "pagination": {
+                            "el": ".swiper-pagination",
+                            "type": "bullets",
+                            "clickable": true
+                        },
+                        "breakpoints": {
+                            "320": {
+                                "slidesPerView": 1,
+                                "spaceBetween": 40
+                            },
+                            "1200": {
+                                "slidesPerView": 3,
+                                "spaceBetween": 1
+                            }
+                        }
+                    }
+                </script>
+                <div class="swiper-wrapper">
+                    {% for i in friend %}
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>{{ i.description }}</span>
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                                <img src="{{ i.image.url }}" class="testimonial-img" alt="">
+                                <a href="{{ i.contact }}" target="_blank"><h3>{{ i.full_name }}</h3></a>
+                                <h4>{{ i.job }}</h4>
+                            </div>
+                        </div><!-- End testimonial item -->
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+
+    </section><!-- /Testimonials Section -->
+
+    <!--     Contact Section -->
+    <section id="contact" class="contact section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Contact</h2>
+        </div><!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-5">
+
+                    <div class="info-wrap">
+                        {% for i in contact %}
+
+                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                                <i class="bi bi-telephone flex-shrink-0"></i>
+                                <div>
+                                    <h3>Call Us</h3>
+                                    <p>{{ i.phone }}</p>
+                                </div>
+                            </div><!-- End Info Item -->
+
+
+                            <iframe src="{{ i.location }}"
+                                    frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen=""
+                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <form method="post" data-aos="fade-up" data-aos-delay="200">
+                        {% csrf_token %}
+                        <div class="row gy-4">
+
+                            <div class="col-md-6">
+                                <label for="name-field" class="pb-2">Full Name</label>
+                                <input type="text" name="name" id="name-field" class="form-control" required="">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="username-field" class="pb-2">Telegram Username</label>
+                                <input type="text" class="form-control" name="username" id="username-field" required="">
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="phone-field" class="pb-2">Phone Number</label>
+                                <input type="text" class="form-control" name="phone" id="phone-field" required="">
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="message-field" class="pb-2">Message</label>
+                                <textarea class="form-control" name="message" rows="10" id="message-field"
+                                          required=""></textarea>
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <button type="submit">Send Message</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div><!-- End Contact Form -->
+                <!-- End Contact Form -->
+
+            </div>
+
+        </div>
+
+    </section><!-- /Contact Section -->
+
+
+</main>
+
+<footer id="footer" class="footer position-relative light-background">
+
+    <div class="container">
+        <div class="copyright text-center ">
+            <p><strong class="px-1 sitename">Abdurahimov Diyorbek</strong></p>
+        </div>
+        <div class="credits">
+            <a href="{{ links.telegram_bot }}" target="_blank">Telegram Bot</a>
+        </div>
+    </div>
+
+
+</footer>
+
+<!-- Scroll Top -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Preloader -->
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script src="{% static 'vendor/typed.js/typed.umd.js' %}"></script>
+<script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+<script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script>
+<script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+<!-- Main JS File -->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
