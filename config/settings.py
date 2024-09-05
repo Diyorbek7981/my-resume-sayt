@@ -27,6 +27,8 @@ SECRET_KEY = ENV.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+CORS_ALLOW_ALL_ORIGINS = True
+CSRF_TRUSTED_ORIGINS = ['http://sayt.diyorbek-dev.uz']
 
 # Application definition
 
@@ -137,7 +139,7 @@ JAZZMIN_SETTINGS = {
     "site_brand": "Abdurahimov Diyorbek",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
-    "site_logo": "img/icon-dev.png",
+    "site_logo": "img/icon_dev.png",
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
     # "login_logo": 'img/photo_2024-03-12_14-34-45.jpg',
