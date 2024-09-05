@@ -114,3 +114,6 @@ class Links(models.Model):
     telegram = models.URLField(max_length=200)
     linkedin = models.URLField(max_length=200)
     telegram_bot = models.URLField(max_length=200)
+
+    def __str__(self):
+        return self.linktee

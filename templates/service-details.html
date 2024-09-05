@@ -10,7 +10,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{% static 'img/icon.png' %}" rel="icon">
+    <link href="{% static 'img/icon-dev.png' %}" rel="icon">
     <!--    <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">-->
 
     <!-- Fonts -->
@@ -43,7 +43,9 @@
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="profile-img">
-        <img src="{% static 'img/profil_1.jpg' %}" alt="" class="img-fluid rounded-circle">
+        {% for i in about %}
+            <img src="{{ i.image.url }}" alt="" class="img-fluid rounded-circle">
+        {% endfor %}
     </div>
 
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
@@ -53,11 +55,11 @@
     </a>
 
     <div class="social-links text-center">
-        <a href="https://www.youtube.com/channel/UCG1H3j8U6no-DXVTMt65yrA" target="_blank" class="youtube"><i
+        <a href="{{ links.linktee }}" target="_blank" class="youtube"><i
                 class="bi bi-youtube"></i></a>
-        <a href="https://www.instagram.com/abruisdev/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://t.me/abruis_code" target="_blank" class="telegram"><i class="bi bi-telegram"></i></a>
-        <a href="https://www.linkedin.com/in/rustamjon-isroilov-9a5876246/" target="_blank" class="linkedin"><i
+        <a href="{{ links.instagram }}" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="{{ links.telegram }}" target="_blank" class="telegram"><i class="bi bi-telegram"></i></a>
+        <a href="{{ links.linkedin }}" target="_blank" class="linkedin"><i
                 class="bi bi-linkedin"></i></a>
         <!--        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>-->
     </div>
@@ -83,7 +85,7 @@
             <h1 class="mb-2 mb-lg-0">Service Details</h1>
             <nav class="breadcrumbs">
                 <ol>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{% url 'index' %}">Home</a></li>
                     <li class="current">Service Details</li>
                 </ol>
             </nav>
@@ -141,7 +143,7 @@
             <p><strong class="px-1 sitename">Abdurahimov Diyorbek</strong></p>
         </div>
         <div class="credits">
-            <a href="{{ service.telegram_bot }}" target="_blank">Telegram Bot</a>
+            <a href="{{ links.telegram_bot }}" target="_blank">Telegram Bot</a>
         </div>
     </div>
 

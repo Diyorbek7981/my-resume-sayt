@@ -35,8 +35,12 @@ def index(request):
 def service_detail(request, pk):
     service_pk = Service.objects.get(id=pk)
     service = Service.objects.all()
+    links = Links.objects.first()
+    about = About.objects.all()
     ctx = {
         'detail': service_pk,
-        'service': service
+        'service': service,
+        'about': about,
+        'links': links,
     }
     return render(request, 'service-details.html', ctx)
